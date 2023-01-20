@@ -5,6 +5,7 @@ import com.luxoft.ecommerce.dto.PurchaseRequest;
 import com.luxoft.ecommerce.services.PurchaseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,6 +18,7 @@ public class EcommerceController {
     private PurchaseService purchaseService;
 
     @PostMapping
+    @Transactional
     public PurchaseReceipt buy(@RequestBody PurchaseRequest request) {
 
         // Send message to kafka

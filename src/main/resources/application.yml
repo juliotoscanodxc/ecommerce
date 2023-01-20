@@ -1,0 +1,16 @@
+spring:
+  profiles:
+    active: local
+---
+spring:
+  profiles: local
+  kafka:
+    bootstrapAddress: localhost:9092,localhost:9093,localhost:9094
+    consumer:
+      topic: purchase-order-topic
+      group-id: purchase-listener-group
+    producer:
+      payment:
+        topic: payment-order-topic
+      purchase:
+        topic: purchase-receipt-topic
